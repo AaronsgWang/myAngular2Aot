@@ -6,10 +6,9 @@ import { HeroService } from '../hero.service';
 import { Hero } from '../model/Hero';
 
 @Component({
-	moduleId: module.id,
 	selector: 'my-dashboard-hero-list',
-	styleUrls: [ 'dashboard.component.css' ],
-	templateUrl: 'dashboard.component.html',
+	styleUrls: [ './dashboard.component.css' ],
+	templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardHeroListComponent {

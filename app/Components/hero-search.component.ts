@@ -9,7 +9,6 @@ import { Hero } from '../model/Hero';
 import { HeroService } from '../hero.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'hero-search',
   template: `<hero-search-co [heroes]="heroes" (onSearch)="search($event)"></hero-search-co>`
   // styleUrls: [ 'hero-search.component.css' ]

@@ -6,10 +6,9 @@ import { List } from 'immutable';
 import { Hero } from '../model/Hero';
 
 @Component({
-  moduleId: module.id,
   selector: 'hero-search-co',
-  templateUrl: 'hero-search.component.html',
-  styleUrls: [ 'hero-search.component.css' ],
+  templateUrl: './hero-search.component.html',
+  styleUrls: [ './hero-search.component.css' ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroSearchCoComponent {

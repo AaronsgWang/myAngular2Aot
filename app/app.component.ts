@@ -1,9 +1,10 @@
 import { Component} from '@angular/core';
 
+import './styles.css';
+
 @Component({
-  moduleId: module.id,
   selector: 'my-app',
-  styleUrls:[ 'app.component.css' ],
+  styleUrls:[ './app.component.css' ],
   template: `<h1>{{title}}</h1>
   <nav>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>

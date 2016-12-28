@@ -3,7 +3,6 @@ import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from 
 import { HeroRecord } from '../model/Hero';
 
 @Component({
-    moduleId: module.id,
     selector: 'my-hero-detail-content',
     template: `<template [ngIf]="hero">
 	<h2>{{hero.name}} details!</h2>

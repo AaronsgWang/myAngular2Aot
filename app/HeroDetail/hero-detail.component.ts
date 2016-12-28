@@ -6,7 +6,6 @@ import { HeroService } from '../hero.service';
 import { HeroRecord, Hero } from '../model/Hero';
 
 @Component({
-	moduleId: module.id,
 	selector: 'my-hero-detail',
 	template: `<button (click)="back()">Back</button>
 			<my-hero-detail-content [hero]="hero" (onSave)="save($event)"></my-hero-detail-content>`

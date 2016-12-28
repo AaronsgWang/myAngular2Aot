@@ -6,7 +6,6 @@ import { HeroService } from '../hero.service';
 import { Hero } from '../model/Hero';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-dashboard',
   template: `<my-dashboard-hero-list [heroes]="heroes"></my-dashboard-hero-list>
               <hero-search></hero-search>`
