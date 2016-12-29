@@ -103,7 +103,7 @@ module.exports = function (options) {
             '@ngtools/webpack',
             'angular2-router-loader?aot=true&genDir=aot'
           ],
-          exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts')]
+          exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
         },
 
         {
@@ -111,7 +111,7 @@ module.exports = function (options) {
           use: [
             'awesome-typescript-loader'
           ],
-          include: [helpers.root('app/polyfills.browser.ts')]
+          include: [helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
         },
 
         /*
