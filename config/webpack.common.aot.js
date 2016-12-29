@@ -19,7 +19,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const AotPlugin = require('@ngtools/webpack').AotPlugin;
 
 /*
  * Webpack Constants
@@ -131,7 +130,13 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
+          exclude: [ helpers.root('app/styles.css') ],
           use: ['to-string-loader', 'css-loader']
+        },
+        {
+          test: /\.css$/,
+          include: [ helpers.root('app/styles.css') ],
+          use: ['style-loader', 'css-loader']
         },
 
         /* Raw loader support for *.html
@@ -162,10 +167,6 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
-      new AotPlugin({
-        tsConfigPath: helpers.root('tsconfig-aot.json'),
-        entryModule: helpers.root('app/app.module#AppModule')
-      }),
       new AssetsPlugin({
         path: helpers.root('dist'),
         filename: 'webpack-assets.json',

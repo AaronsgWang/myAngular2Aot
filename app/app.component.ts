@@ -13,5 +13,5 @@ import './styles.css';
   <router-outlet></router-outlet>`
 })
 export class AppComponent  {
-	title: string = 'Tour of Heroes';
+	title: string = 'Tour of Heroes test';
 }
