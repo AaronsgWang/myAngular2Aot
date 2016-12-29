@@ -17,7 +17,7 @@
     "build:aotbak": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "lite:aot": "lite-server -c aot/bs-config.json",
     "build": "webpack --config config/webpack.dev.js --progress --profile",
-    "build:aot": "webpack --config config/webpack.dev.aot.js --progress --profile",
+    "build:aot": "webpack --config config/webpack.prod.aot.js --progress --profile --bail",
     "build:prod": "webpack --config config/webpack.prod.js  --progress --profile --bail",
     "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base app/",
     "server:prod": "http-server dist --cors"
