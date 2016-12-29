@@ -81,6 +81,29 @@ module.exports = function (env) {
       chunkFilename: '[id].[chunkhash].chunk.js'
 
     },
+    
+    module: {
+
+      rules: [
+        /*
+         * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+         * Replace templateUrl and stylesUrl with require()
+         *
+         * See: https://github.com/s-panferov/awesome-typescript-loader
+         * See: https://github.com/TheLarkInn/angular2-template-loader
+         */
+        {
+          test: /\.ts$/,
+          use: [
+            // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
+            'awesome-typescript-loader',
+            'angular2-template-loader',
+            'angular2-router-loader'
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+        }
+      ]
+    },
 
     /**
      * Add additional plugins to the compiler.

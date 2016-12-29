@@ -87,32 +87,6 @@ module.exports = function (options) {
     module: {
 
       rules: [
-
-        /*
-         * Typescript loader support for .ts and Angular 2 async routes via .async.ts
-         * Replace templateUrl and stylesUrl with require()
-         *
-         * See: https://github.com/s-panferov/awesome-typescript-loader
-         * See: https://github.com/TheLarkInn/angular2-template-loader
-         */
-        {
-          test: /\.ts$/,
-          use: [
-            // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
-            '@ngtools/webpack',
-            'angular2-router-loader?aot=true&genDir=aot'
-          ],
-          exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
-        },
-
-        {
-          test: /\.ts$/,
-          use: [
-            'awesome-typescript-loader'
-          ],
-          include: [helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
-        },
-
         /*
          * Json loader support for *.json files.
          *
