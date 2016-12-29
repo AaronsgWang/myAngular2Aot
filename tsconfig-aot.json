@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -14,7 +14,7 @@
   },
   "compileOnSave": false,
   "angularCompilerOptions": {
-    "genDir": ".",
+    "genDir": "aot",
     "tsConfigPath": "./tsconfig-aot.json",
     "entryModule": "./app/app.module#AppModule",
     "skipMetadataEmit": true

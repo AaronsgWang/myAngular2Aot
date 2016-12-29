@@ -100,9 +100,18 @@ module.exports = function (options) {
           test: /\.ts$/,
           use: [
             // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
-            '@ngtools/webpack'
+            '@ngtools/webpack',
+            'angular2-router-loader?aot=true&genDir=aot'
           ],
-          exclude: [/\.(spec|e2e)\.ts$/]
+          exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts')]
+        },
+
+        {
+          test: /\.ts$/,
+          use: [
+            'awesome-typescript-loader'
+          ],
+          include: [helpers.root('app/polyfills.browser.ts')]
         },
 
         /*
