@@ -1,33 +1,20 @@
+import {
+  inject,
+  TestBed
+} from '@angular/core/testing';
+
+// Load the implementations that should be tested
 import { AppComponent } from './app.component';
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+describe('App', () => {
+  // provide our implementations or mocks to the dependency injector
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      AppComponent
+    ]}));
 
-describe('AppComponent', function () {
-  let de: DebugElement;
-  let comp: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
-    })
-    .compileComponents();
+  it('should have a url', inject([ AppComponent ], (app: AppComponent) => {
+    expect(app.title).toEqual('Angular Tour of Heroes test');
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
-  });
-
-  it('should create component', () => expect(comp).toBeDefined() );
-
-  it('should have expected <h1> text', () => {
-    fixture.detectChanges();
-    const h1 = de.nativeElement;
-    expect(h1.innerText).toMatch(/angular/i,
-      '<h1> should say something about "Angular"');
-  });
 });
