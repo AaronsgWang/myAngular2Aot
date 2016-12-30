@@ -8,6 +8,7 @@
         "**/node_modules/": true,
         "**/*.js": { "when": "$(basename).ts" },
         "**/*.js.map": true,
-        "aot/": true
+        "aot/": true,
+        "coverage/": true
     }
 }

@@ -7,6 +7,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
+    "types": [
+      "jasmine",
+      "node",
+      "selenium-webdriver",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },

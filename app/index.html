@@ -10,7 +10,7 @@
   <body>
     <my-app>Loading AppComponent content here ...</my-app>
 
-    <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>

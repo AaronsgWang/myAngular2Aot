@@ -4,7 +4,7 @@ import './styles.css';
 
 @Component({
   selector: 'my-app',
-  styleUrls:[ './app.component.css' ],
+  styleUrls: [ './app.component.css' ],
   template: `<h1>{{title}}</h1>
   <nav>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
@@ -13,5 +13,5 @@ import './styles.css';
   <router-outlet></router-outlet>`
 })
 export class AppComponent  {
-	title: string = 'Tour of Heroes test';
+	title: string = 'Angular Tour of Heroes test';
 }
