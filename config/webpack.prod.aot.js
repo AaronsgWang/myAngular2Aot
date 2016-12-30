@@ -25,7 +25,10 @@ const AotPlugin = require('@ngtools/webpack').AotPlugin;
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
-const METADATA = webpackMerge(commonConfig({ env: ENV }).metadata, {
+
+const commonSetting = commonConfig({ env: ENV });
+
+const METADATA = webpackMerge(commonSetting.metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV
@@ -33,7 +36,24 @@ const METADATA = webpackMerge(commonConfig({ env: ENV }).metadata, {
 });
 
 module.exports = function (env) {
-  return webpackMerge(commonConfig({ env: ENV }), {
+  commonSetting.module.rules = helpers.replaceNewRules(commonSetting.module.rules, x => String(x.test) !== String(/\.ts$/), [{
+      test: /\.ts$/,
+      use: [
+        // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
+        '@ngtools/webpack',
+        'angular2-router-loader?aot=true&genDir=aot'
+      ],
+      exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
+    },
+    {
+      test: /\.ts$/,
+      use: [
+        'awesome-typescript-loader'
+      ],
+      include: [helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
+    }]);
+  
+  return webpackMerge(commonSetting, {
     entry: {
           'polyfills': './app/polyfills.browser.ts',
           'vendor':    './app/vendor.browser.ts',
@@ -85,36 +105,6 @@ module.exports = function (env) {
        */
       chunkFilename: '[id].[chunkhash].chunk.js'
 
-    },
-    module: {
-
-      rules: [
-
-        /*
-         * Typescript loader support for .ts and Angular 2 async routes via .async.ts
-         * Replace templateUrl and stylesUrl with require()
-         *
-         * See: https://github.com/s-panferov/awesome-typescript-loader
-         * See: https://github.com/TheLarkInn/angular2-template-loader
-         */
-        {
-          test: /\.ts$/,
-          use: [
-            // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
-            '@ngtools/webpack',
-            'angular2-router-loader?aot=true&genDir=aot'
-          ],
-          exclude: [/\.(spec|e2e)\.ts$/, helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
-        },
-
-        {
-          test: /\.ts$/,
-          use: [
-            'awesome-typescript-loader'
-          ],
-          include: [helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
-        }
-      ]
     },
 
     /**
@@ -319,6 +309,5 @@ module.exports = function (env) {
       clearImmediate: false,
       setImmediate: false
     }
-
   });
 }

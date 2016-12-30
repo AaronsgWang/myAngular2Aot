@@ -19,6 +19,13 @@ function root(args) {
   return path.join.apply(path, [ROOT].concat(args));
 }
 
+function replaceNewRules(rules, filterFunc, newRules) {
+  let filtedRules = rules.filter(filterFunc);
+  newRules.forEach(x => filtedRules.push(x));
+  return filtedRules;
+}
+
 exports.hasProcessFlag = hasProcessFlag;
 exports.isWebpackDevServer = isWebpackDevServer;
 exports.root = root;
+exports.replaceNewRules = replaceNewRules;
