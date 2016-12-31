@@ -1,6 +1,7 @@
 # Angular QuickStart Source
 
 This will include AOT, lazy loading and tree shaking with webpack 2.
+The aot + tree shaking in angular.io doesn't support lazy loading which is using systemjs + rollup, but with webpack 2, it can support aot + tree shaking + lazy loading.
 
 ## Debug
 npm start
