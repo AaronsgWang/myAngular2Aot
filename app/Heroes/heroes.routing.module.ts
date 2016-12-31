@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HeroesComponent
+  },
+  {
+  path: 'detail/:id',
+  loadChildren: '../HeroDetail/hero-detail.module#HeroDetailModule'
   }
 ];
 

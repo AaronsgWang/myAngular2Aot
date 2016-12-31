@@ -25,7 +25,7 @@ export class HeroSearchCoComponent {
   }
 
   gotoDetail(hero: Hero): void {
-    let link = ['/detail', hero.id];
+    let link = ['/heroes/detail', hero.id];
     this.router.navigate(link);
   }
 }

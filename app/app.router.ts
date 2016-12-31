@@ -10,10 +10,10 @@ const routes: Routes = [
   	path: 'dashboard',
   	loadChildren: './Dashboard/dashboard.module#DashboardModule'
   },
-  {
-	path: 'detail/:id',
-	loadChildren: './HeroDetail/hero-detail.module#HeroDetailModule'
-  },
+  // {
+	// path: 'detail/:id',
+	// loadChildren: './HeroDetail/hero-detail.module#HeroDetailModule'
+  // },
   {
   	path: '',
   	redirectTo: 'dashboard',
