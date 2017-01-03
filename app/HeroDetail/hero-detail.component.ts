@@ -30,7 +30,8 @@ export class HeroDetailComponent implements OnInit{
 		this.location.back();
 	}
 
-	save(hero: HeroRecord) {
-	  this.heroService.update(hero.toObject() as Hero).then(() => this.back());
+	async save(hero: HeroRecord) {
+		await this.heroService.update(hero.toObject() as Hero);
+		this.back();
 	}
 }

@@ -40,6 +40,7 @@ module.exports = function (env) {
       test: /\.ts$/,
       use: [
         // '@angularclass/hmr-loader?pretty=' + !isProd + '&prod=' + isProd,
+        'babel-loader',
         '@ngtools/webpack',
         'angular2-router-loader?aot=true&genDir=aot'
       ],
@@ -48,6 +49,7 @@ module.exports = function (env) {
     {
       test: /\.ts$/,
       use: [
+        'babel-loader',
         'awesome-typescript-loader'
       ],
       include: [helpers.root('app/polyfills.browser.ts'), helpers.root('app/vendor.browser.ts')]
@@ -291,7 +293,7 @@ module.exports = function (env) {
           },
 
         }
-      }),
+      })
 
     ],
 

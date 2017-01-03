@@ -37,8 +37,8 @@ export class HeroService {
 		// return this.http.get(this.heroesUrl).toPromise().then(response => (response.json().data as Hero[]).find(x=> x.id === id));
 	}
 
-	update(hero: Hero): Promise<Hero>{
-		return Promise.resolve(this.updateEntity(hero));
+	async update(hero: Hero): Promise<Hero>{
+		return this.updateEntity(hero);
 		// const url = `${this.heroesUrl}/${hero.id}`;
 		// return this.http.put(url, JSON.stringify(hero), {headers: this.headers}).toPromise().then(()=> hero);
 	}
