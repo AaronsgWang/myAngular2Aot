@@ -38,6 +38,7 @@ export class HeroService {
 	}
 
 	async update(hero: Hero): Promise<Hero>{
+		await Wait(2000);
 		return this.updateEntity(hero);
 		// const url = `${this.heroesUrl}/${hero.id}`;
 		// return this.http.put(url, JSON.stringify(hero), {headers: this.headers}).toPromise().then(()=> hero);
@@ -93,7 +94,7 @@ export class HeroService {
 		return Wait(2000).then(()=>{
 			console.log("getHeroes1");
 			return this.http.get(this.heroesUrl).toPromise();
-		}).then(response=> response.json().data as Hero[]);
+		}).then(response=> (<any>response).json().data as Hero[]);
 	}
 
 	private getHeroes2(): Promise<Hero[]>{
@@ -101,6 +102,6 @@ export class HeroService {
 		return Wait(2000).then(()=>{
 			console.log("getHeroes2");
 			return this.http.get(this.heroesUrl).toPromise();
-		}).then(response=> response.json().data as Hero[]);
+		}).then(response=> (<any>response).json().data as Hero[]);
 	}
 }
