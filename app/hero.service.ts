@@ -93,7 +93,7 @@ export class HeroService {
 		return Wait(2000).then(()=>{
 			console.log("getHeroes1");
 			return this.http.get(this.heroesUrl).toPromise();
-		}).then(response=> response.json().data as Hero[]);
+		}).then(response=> (<any>response).json().data as Hero[]);
 	}
 
 	private getHeroes2(): Promise<Hero[]>{
@@ -101,6 +101,6 @@ export class HeroService {
 		return Wait(2000).then(()=>{
 			console.log("getHeroes2");
 			return this.http.get(this.heroesUrl).toPromise();
-		}).then(response=> response.json().data as Hero[]);
+		}).then(response=> (<any>response).json().data as Hero[]);
 	}
 }
