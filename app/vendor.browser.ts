@@ -6,7 +6,7 @@
 // TODO(gdi2290): switch to DLLs
 
 // Angular 2
-import '@angular/core';
+import * as angularCore from '@angular/core';
 import '@angular/common';
 import '@angular/forms';
 import '@angular/http';
@@ -35,7 +35,7 @@ import 'rxjs/add/operator/toPromise';
 if ('production' === ENV) {
   // Production
   require('@angular/platform-browser');
-
+  angularCore.enableProdMode();
 } else {
   // Development
   require('@angular/platform-browser-dynamic');
