@@ -3,7 +3,7 @@ import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { HeroService } from '../hero.service';
-import { HeroRecord, Hero } from '../model/Hero';
+import { HeroRecord, Hero, CreateHero } from '../model/Hero';
 
 @Component({
 	selector: 'my-hero-detail',
@@ -23,7 +23,7 @@ export class HeroDetailComponent implements OnInit{
 	ngOnInit(): void {
 	  this.route.params
 	    .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-	    .subscribe(hero => this.hero = new HeroRecord(hero));
+	    .subscribe(hero => this.hero = CreateHero(hero));
 	}
 
 	back(): void{

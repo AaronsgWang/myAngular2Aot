@@ -1,22 +1,12 @@
-import { Record } from 'immutable';
+import { Recorder, CreateRecord } from '../Utils/Helper';
 
 class Hero{
 	id: number;
 	name: string;
 }
 
-type HeroParams = {
-    id?: number,
-    name?: string,
-};
+type HeroRecord = Recorder<Hero>;
 
-class HeroRecord extends Record({ id: 0, name: '' }){
-	id: number;
-	name: string;
+const CreateHero = CreateRecord<Hero>({id: 0, name: ''});
 
-	constructor(params?: HeroParams){
-		params ? super(params): super();
-	}
-}
-
-export { Hero, HeroRecord };
+export { Hero, HeroRecord, CreateHero };
